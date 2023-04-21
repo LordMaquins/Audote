@@ -3,5 +3,5 @@ require 'config.php';
 $_SESSION = [];
 session_unset();
 session_destroy();
-header("location: index.php");
+header("location: reglog.php");
 ?>
