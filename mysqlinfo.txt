@@ -8,3 +8,31 @@ MYSQL PASSWORD - PEfvg2chF8P
 
 MYSQL HOSTNAME - sql213.epizy.com
 
+// Banco de dados do usuarios
+
+create table usuarios (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(75),
+    sobrenome varchar(75),
+    email varchar(100),
+    senha varchar(75)
+);
+
+// Banco de dados dos pets
+
+create database audoteTeste;
+use audoteTeste;
+
+create table pets(
+    idPet int PRIMARY KEY AUTO_INCREMENT,
+    nomePet varchar(75),
+    tipoAnimal varchar(75),
+    raca varchar(75),
+    idadePet int,
+    porte varchar(75),
+    sexo varchar(50),
+    descricao varchar(255),
+    vacinas varchar(75),
+    vermifugado varchar(75),
+    imagemPet varchar(225)
+);

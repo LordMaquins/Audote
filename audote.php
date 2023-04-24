@@ -31,7 +31,7 @@ if(!empty($_SESSION["id"])){
                     <li>
                         <a href="#"><img src="./src/img/logo.jpg" alt=""></a>
                     </li>
-                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="cadastrarpet.php">Cadastrar Pet</a></li>
                     <li><a href="#">Quero adotar</a></li>
                     <li><a href="#">Quero ajudar</a></li>
                     <li><a href="#">Parcerias</a></li>
@@ -60,122 +60,39 @@ if(!empty($_SESSION["id"])){
     <div class="pets">
             <h2 class="h1 text-center my-5">Veja os nossos <strong>PETS</strong></h2>
             <div class="lista-de-imagens row">
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/1.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Serginho</h2>
-                        <h3>Cachorro macho | Border Collie</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Surdo</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
+
+                <?php
+                    $stmt = $pdo->prepare("select * from pets");	
+                    $stmt ->execute();
+                    
+                    while($row = $stmt ->fetch(PDO::FETCH_BOTH)){
+                        
+                    echo "
+                        <div class='pet col-xl-3 col-md-5' style=\"--imagem-fundo:url('$row[10]');\">
+                        <div class='preto'></div>
+                        <div class='descricao'>
+                            <h2>$row[1]</h2>
+                            <h3>$row[2] $row[6] | $row[3]</h3>
+                            <div class='oculto'>
+                                <h4>Idade: $row[4] anos <br>
+                                    Tamanho: $row[5] <br>
+                                    Sexo: $row[6]</h4>
+                                    <p>$row[7]</p>
+                                    <ul>
+                                        <li>$row[8]</li>
+                                        <li>$row[9]</li>
+                                    </ul>
+                                    <h4><a href=''>Adote já</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/2.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Bruninha</h2>
-                        <h3>Cachorra Fêmea | Borzoi</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Ciumento</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/3.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Dudu</h2>
-                        <h3>Cachorro macho | Boston terrier</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Aleijado</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/4.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Valdir</h2>
-                        <h3>Cachorro macho | Shiba inu</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Cego</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/3.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Valdir</h2>
-                        <h3>Cachorro macho | Shiba inu</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Canhoto</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="pet col-xl-3 col-md-5" style="--imagem-fundo: url('./src/img/1.jpg');">
-                    <div class="preto"></div>
-                    <div class="descricao">
-                        <h2>Valdir</h2>
-                        <h3>Cachorro macho | Shiba inu</h3>
-                        <div class="oculto">
-                            <h4>Idade: 10 anos <br>
-                                Tamanho: Pequeno <br>
-                                Sexo: Feminino</h4>
-                                <p>Esse cachorro é muito lindo e pipipopo foi adotado não sei onde não sei por quem e pipipopo</p>
-                                <ul>
-                                    <li>Vermifugado</li>
-                                    <li>Vacinado</li>
-                                    <li>Perneta</li>
-                                </ul>
-                                <h4><a href="#">Adote já</a></h4>
-                        </div>
-                    </div>
-                </div>
+                    ";
+                    
+                    }
+                ?>
             </div>
         </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/app.js"></script>

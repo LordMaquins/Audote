@@ -131,8 +131,13 @@ header nav ul li img {
     transition: 1s;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    justify-content: space-around;
+    height: 90%;
+    justify-content: space-evenly;
+}
+
+.oculto p {
+    width: 350px;
+    word-wrap: break-word;
 }
 
 .pet:hover .oculto {
@@ -269,4 +274,13 @@ li .sair {
     width: 100px;
     height: 50px;
     text-align: center;
+}
+
+.cadastrar-pet {
+    margin-top: 150px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+form {
+    padding: 50px 70px  !important;
 }
