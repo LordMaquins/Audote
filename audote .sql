@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 25-Abr-2023 às 23:40
+-- Tempo de geração: 26-Abr-2023 às 00:47
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `adotante`;
 CREATE TABLE IF NOT EXISTS `adotante` (
   `id_adot` int NOT NULL AUTO_INCREMENT,
-  `id_usuarios` varchar(255) DEFAULT NULL,
+  `id_usuario` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `cpf` char(11) NOT NULL,
   `endereco` varchar(255) DEFAULT NULL,
   `cidade` varchar(255) DEFAULT NULL,
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `adotante` (
   `posse_animal` varchar(255) DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_adot`),
-  UNIQUE KEY `cpf` (`cpf`)
+  UNIQUE KEY `cpf` (`cpf`),
+  KEY `fk_adot_usuario` (`id_usuario`(250))
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
